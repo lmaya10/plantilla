@@ -6,6 +6,14 @@ class Navio extends Component{
 	constructor(props)
 	{
 		super(props);
+		
+	}
+
+	componentDidMount(){
+		this.usarNavio();
+	}
+
+	componentDidUpdate(){
 		this.usarNavio();
 	}
 
@@ -17,6 +25,8 @@ class Navio extends Component{
 		nv.data(datosActuales);
 		nv.addAllAttribs();
 	}
+
+
 
 	render() {
 		return(

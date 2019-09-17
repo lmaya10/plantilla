@@ -8,7 +8,8 @@ class Datos extends Component{
     super(props);
     this.state={
       "urlBuscar": "",
-      "datos": []
+      "datos": [],
+      tieneUrl: false
     }
     this.traerInfo = this.traerInfo.bind(this);
   }
@@ -22,8 +23,10 @@ class Datos extends Component{
       .then(response => response.json())
       .then(response => {
         console.log("Datos", response);
-        let datos = response;
-        this.setState({datos:response});
+        //let datos = response;
+        this.setState({datos:response}, () => {this.setState({tieneUrl:true});
+          console.log("Datos en datos", this.state.datos)});
+        
         
     }))
   }
@@ -36,7 +39,8 @@ class Datos extends Component{
         <div> 
           <input type="text" ref ={linkInput => this.linkInput = linkInput} onInput = {this.onChange.bind(this)}></input>
           <button type="button" onClick={this.traerInfo}>Traer datos </button>
-          <CompNavio datos={this.state.datos}></CompNavio>
+          {this.state.tieneUrl == true ? <CompNavio datos={this.state.datos}></CompNavio> : <br></br>}
+          
         </div>  
       </div>
 
