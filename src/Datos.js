@@ -1,6 +1,6 @@
 
 import React, {Component} from "react";
-import navio from "navio";
+import CompNavio from "./CompNavio.js";
 
 class Datos extends Component{
 
@@ -12,15 +12,6 @@ class Datos extends Component{
     }
     this.traerInfo = this.traerInfo.bind(this);
   }
-
-  renderDatos() {
-    return this.state.datos.map(t => (
-      <div>
-        <p>{t.region }</p>
-      </div>
-    ));
-  }
-
   onChange( ){
     return this.setState({urlBuscar:this.linkInput.value});
   }
@@ -33,9 +24,11 @@ class Datos extends Component{
         console.log("Datos", response);
         let datos = response;
         this.setState({datos:response});
-
+        
     }))
   }
+
+  
 
   render () {
     return(
@@ -43,8 +36,7 @@ class Datos extends Component{
         <div> 
           <input type="text" ref ={linkInput => this.linkInput = linkInput} onInput = {this.onChange.bind(this)}></input>
           <button type="button" onClick={this.traerInfo}>Traer datos </button>
-          <div >
-          </div>
+          <CompNavio datos={this.state.datos}></CompNavio>
         </div>  
       </div>
 
