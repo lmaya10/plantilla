@@ -43,10 +43,7 @@ class Datos extends Component{
         <div> 
           <input type="text" ref ={linkInput => this.linkInput = linkInput} onInput = {this.onChange.bind(this)}></input>
           <button type="button" onClick={this.traerInfo}>Traer datos </button>
-          <div>
-          {
-            this.renderDatos()
-          }
+          <div >
           </div>
         </div>  
       </div>
