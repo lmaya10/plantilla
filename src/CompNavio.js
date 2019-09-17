@@ -11,11 +11,11 @@ class Navio extends Component{
 
 	usarNavio()
 	{
+		console.log("Datos que llegan a Navio", this.props.datos)
 		const nv = new navio (this.elDiv, 600);
 		let datosActuales = this.props.datos;
 		nv.data(datosActuales);
 		nv.addAllAttribs();
-		console.log("Datos que llegan a Navio", this.props.datos)
 	}
 
 	render() {

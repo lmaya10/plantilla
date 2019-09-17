@@ -28,7 +28,7 @@ class Datos extends Component{
     }))
   }
 
-  
+
 
   render () {
     return(
