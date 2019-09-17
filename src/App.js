@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Datos from './Datos.js';
 
 function App() {
