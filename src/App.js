@@ -5,7 +5,7 @@ import Datos from './Datos.js';
 function App() {
   return (
     <div className="App">
-      <h1> Si funciona el front</h1>
+      <h1> Visualizacion Datos Datos.gov.co</h1>
       <Datos></Datos>
     </div>
   )
