@@ -9,7 +9,8 @@ class Datos extends Component{
     this.state={
       "urlBuscar": "",
       "datos": [],
-      tieneUrl: false
+      tieneUrl: false,
+      loading: false
     }
     this.traerInfo = this.traerInfo.bind(this);
   }
@@ -17,18 +18,58 @@ class Datos extends Component{
     return this.setState({urlBuscar:this.linkInput.value});
   }
   
-  traerInfo(){
-    return(
-    fetch(this.state.urlBuscar)
+  hacerFetch(actual, loading) { 
+      let urlActual = this.state.urlBuscar + "?$limit=900&$offset="+actual;
+      console.log(urlActual);
+      fetch(urlActual)
       .then(response => response.json())
       .then(response => {
         console.log("Datos", response);
-        //let datos = response;
-        this.setState({datos:response}, () => {this.setState({tieneUrl:true});
-          console.log("Datos en datos", this.state.datos)});
         
+        if(response.length == 0)
+        {
+          loading = true;
+        }
+        else
+        {
+          let datos = response;
+          let viejos = this.state.datos;
+          let nuevos = viejos.concat(datos);
+          this.setState({datos:nuevos});
+          console.log("Datos en datos", this.state.datos);
+          actual = actual + 900;
+          console.log("Actual" + actual/900); 
+        }
+      });
+    }
+
+  traerInfo(){
+    let actual = 0;
+    let loading = false;
+
+    let urlActual = this.state.urlBuscar + "?$limit=900&$offset="+actual;
+      console.log(urlActual);
+
+      setTimeout(()=>fetch(urlActual)
+      .then(response => response.json())
+      .then(response => {
+        console.log("Datos", response);
         
-    }))
+        if(response.length == 0)
+        {
+          loading = true;
+        }
+        else
+        {
+          let datos = response;
+          let viejos = this.state.datos;
+          let nuevos = viejos.concat(datos);
+          this.setState({datos:nuevos}, () => {this.setState({tieneUrl:true})});
+          console.log("Datos en datos", this.state.datos);
+          actual = actual + 900;
+          console.log("Actual" + actual/900); 
+        }
+      }),1000);
   }
 
 
