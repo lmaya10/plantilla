@@ -7,7 +7,7 @@ El objetivo de este proyecto fue crear una pagina web que permitiera a un usuari
 Para este proyecto se utilizo, html, css, node.js y react. 
 
 ## Autor
-[Laura Maya Diaz](pagweb)
+[Laura Maya Diaz](https://lmaya10.github.io/PaginaPersonal/)
 
 ## Screenshot
 ![](https://raw.githubusercontent.com/lmaya10/visualizacionDatosGobierno/master/Screenshoot.PNG)
