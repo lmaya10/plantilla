@@ -82,18 +82,17 @@ class Datos extends Component{
 
   async guardarConsulta(contenido){
     if(contenido){
-    let text = contenido;
-    console.log("contenido", text);
-    let resultado = await fetch("/crearConsulta", {
-      method:"POST",
-      body: JSON.stringify({text}), 
-      headers: {
-        Accept:"application/json",
-        "Content-Type":"application/json"
-      }
-    });
-
-  }
+      let text = contenido;
+      console.log("contenido", text);
+      let resultado = await fetch("/crearConsulta", {
+        method:"POST",
+        body: JSON.stringify({text}), 
+        headers: {
+          Accept:"application/json",
+          "Content-Type":"application/json"
+        }
+      });
+    }
   }
 
   render () {
