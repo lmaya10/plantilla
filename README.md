@@ -13,9 +13,18 @@ Para este proyecto se utilizo, html, css, node.js y react.
 ![](https://raw.githubusercontent.com/lmaya10/visualizacionDatosGobierno/master/Screenshoot.PNG)
 
 ## Hasta donde llegué 
-Jhon, no pude implementar que fuese iterativo para que trajera las páginas, deje como seria el codigo si pudiese ser iterativo. Sin embargo funciona bien para un link y si introduces otro link y oprimes el boton carga el modelo navio del nuevo link. 
-
-Esta desplegado en [Visualizacion de datos](https://visualizaciondatos.herokuapp.com)
+Jhon, mi entrega incluye las siguientes cosas
+* Muestra los graficos de navio segun la URL que ingrese el usuario   
+* Si cambia la URL el grafico se actualiza segun los nuevos datos    
+* Cuando se cargan los datos se traen todos los datos del JSON y no solo los primeros 1000   
+* Esta desplegado en [Visualizacion de datos](https://visualizaciondatos.herokuapp.com)
+* Utiliza base de datos de Mongo
+* Guarda TODAS las consultas que se realicen
+* Muestra abajo todas las consultas realizadas como botones
+* Si hace una nueva consulta debe refrescar la página en el boton refresh para que se actualicen las consultas.
+* Si se hace click en un boton se vuelve a realizar dicha consulta
+* Mi componente creativo es que el usuario puede indicar cuantas consultas hará, de esta forma puede realizar comparaciones entre dos bases de datos o puede realizar la consulta de varias bases de datos al mismo tiempo. En la parte superior indica el numero de consultas y se muestran dicho numero de interfaces.
+* CREO QUE NO ME FALTA MENCIONAR NADA MAS
 
 ## Pre-requisitos 
 ```
@@ -33,7 +42,10 @@ git clone https://github.com/lmaya10/visualizacionDatosGobierno
 cd visualizacionDatosGobierno
 npm install
 npm start
-open localhost:3000
+open localhost:3001
+Introduce una url 
+Oprime Traer Datos
+Visualiza los datos
 ```
 
 ## Licencia MIT
