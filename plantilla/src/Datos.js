@@ -1,7 +1,6 @@
 
 import React, {Component} from "react";
 import CompNavio from "./CompNavio.js";
-import { MDBListGroup, MDBListGroupItem, MDBContainer } from "mdbreact";
 
 class Datos extends Component{
 
@@ -26,23 +25,23 @@ class Datos extends Component{
       this.setState({
       consultas:response
     })});
-  }
-
-  componentDidUpdate(){
-    this.renderConsultas();
-  }
-
+  }x
 
   renderConsultas(){
     return this.state.consultas.map(t=>  
         <div>
-          {t.text}
+          <button type="button" ref ={linkBoton => this.linkBoton = linkBoton} onClick={() => this.traerVieja(t.text)} value={t.text}>{t.text} </button>
         </div>
     )
   }
 
   onChange( ){ 
       this.setState({urlBuscar:this.linkInput.value});
+  }
+
+  traerVieja(info){
+    console.log("Valor boton " , info);
+    this.setState({tieneUrl: false, urlBuscar: info, datos:[]}, () => this.traerInfo());
   }
 
   consultaPasada(contenido){
@@ -75,7 +74,8 @@ class Datos extends Component{
 
   traerInfo(){
     let actual = 0;
-    this.guardarConsulta(this.linkInput.value);   
+    console.log("Aca url buscar vale: " , this.state.urlBuscar);
+    this.guardarConsulta(this.state.urlBuscar);   
     this.setState({loading: true})
     this.hacerPedido(actual);
   }
@@ -93,13 +93,9 @@ class Datos extends Component{
     });
   }
 
-  refresh() {
-    window.location.reload(true);
-  }
-
   render () {
     return(
-      <div> 
+      <div>
         <div> 
           <input type="text" ref ={linkInput => this.linkInput = linkInput} onInput = {this.onChange.bind(this)}></input>
           <button type="button" onClick={this.traerInfo}>Traer datos </button>

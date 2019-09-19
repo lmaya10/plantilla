@@ -28,6 +28,11 @@ class App extends Component {
   }
 
 
+  refresh() {
+    window.location.reload(true);
+  }
+
+
   render() {
   let tamano = [];
     for(let i = 0; i<this.state.amount;i++)
@@ -37,6 +42,9 @@ class App extends Component {
     return (
       <div>
         <h1> Visualizacion Datos Datos.gov.co</h1>
+        <button type="button" onClick={this.refresh}>Refrescar Página </button>
+        <br/>
+        <br/>
         <label for = "numFuentes"> Indique cuantas fuentes quiere consultar:  </label>
       <input id="numFuentes" type="text" ref ={linkInput => this.linkInput = linkInput} onInput = {this.onChange.bind(this)}></input>
       <br/>
