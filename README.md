@@ -10,6 +10,7 @@ Para este proyecto se utilizo, html, css, node.js y react.
 [Laura Maya Diaz](https://lmaya10.github.io/PaginaPersonal/)
 
 ## Screenshot
+
 ![](https://raw.githubusercontent.com/lmaya10/visualizacionDatosGobierno/master/Screenshoot.PNG)
 
 ## Hasta donde llegué 
