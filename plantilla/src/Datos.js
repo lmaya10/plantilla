@@ -81,6 +81,7 @@ class Datos extends Component{
   }
 
   async guardarConsulta(contenido){
+    if(contenido){
     let text = contenido;
     console.log("contenido", text);
     let resultado = await fetch("/crearConsulta", {
@@ -91,6 +92,8 @@ class Datos extends Component{
         "Content-Type":"application/json"
       }
     });
+
+  }
   }
 
   render () {
